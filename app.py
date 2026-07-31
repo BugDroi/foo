@@ -132,13 +132,13 @@ def generate_review(probs: np.ndarray) -> str:
     sensitive_score = probs[4:7].sum()
 
     if sensitive_score > THRESHOLDS["sensitive"][2]:
-        status = "⚠️ Status: SENSITIVE"
+        status = "Status: SENSITIVE"
     elif warning_score > THRESHOLDS["warning"][2]:
-        status = "🟡 Status: WARNING"
+        status = "Status: WARNING"
     elif safe_score > THRESHOLDS["safe"][2]:
-        status = "✅ Status: SAFE"
+        status = "Status: SAFE"
     else:
-        status = "🔵 Status: BORDERLINE"
+        status = "Status: BORDERLINE"
 
     top_idx = int(np.argmax(probs))
     return f"{status}  |  Top: {short_labels[top_idx]} ({probs[top_idx]:.1%})"
@@ -221,8 +221,8 @@ with gr.Blocks(
 ) as demo:
     gr.Markdown(
         """
-        # 🛡️ Buzzwole — Anime Image Content Classifier
-        CLIP (ViT-B/32) によるアニメ画像の安全度分類と、注目領域のヒートマップ可視化。
+        # Blaceaphon — Character Image Content Classifier
+        CLIP (ViT-B/32) によるアニメ画像の安全度分類と、注目領域のヒートマップ可視化によるフィードバックを提供します。
         画像をアップロードして「分析する」を押してください。
         """
     )
@@ -268,8 +268,8 @@ with gr.Blocks(
         """
         ---
         **ラベル凡例**  
-        🔵 Safe (Casual / Uniform / Sports)　·　🟡 Warning (Swimsuit / Upskirt)  
-        🔴 Sensitive (Breast / Exposure / Pose / Expression)　·　⚫ Danger (Explicit / Lingerie)
+        Safe (Casual / Uniform / Sports)　·　Warning (Swimsuit / Upskirt)  
+        Sensitive (Breast / Exposure / Pose / Expression)　·　Danger (Explicit / Lingerie)
 
         **閾値**  
         SAFE: Safe系合計 > 60%　·　WARNING: Swimsuit > 30%　·　SENSITIVE: Sensitive系合計 > 30%

@@ -28,7 +28,7 @@ VENV_DIR = ROOT / "venv"
 
 BANNER = """
 =============================
- AUTO LIB INSTALLER
+ LIB INSTALLER
  (cross-platform)
 =============================
 """
