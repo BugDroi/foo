@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Cross-platform installer for Buzzwole / BLACEPHALON stack.
+Cross-platform installer for Python virtual environment and LLM assets.
 Works on Linux, macOS, and Windows.
 
 Usage:
