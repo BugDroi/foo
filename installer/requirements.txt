@@ -2,6 +2,7 @@
 # This file lists non-torch deps; torch is chosen by the installer (GPU/CPU).
 # For manual pip install into an existing venv you can also use:
 #   pip install -r .requirements.txt
+openai
 openai-clip
 opencv-python-headless
 Pillow
