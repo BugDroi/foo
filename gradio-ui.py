@@ -3,11 +3,20 @@
 # 処理本体は branch_s / branch_n / branch_c / snc_merge
 # =============================================
 
-import gradio as gr
+import sys
+from pathlib import Path
 
-import branch_s
+# gradio-ui.py から見た script フォルダの絶対パスを取得して追加
+SCRIPT_DIR = Path(__file__).resolve().parent / "script"
+sys.path.append(str(SCRIPT_DIR))
+
+# script 内のモジュールをインポート
+import branch_c
 import branch_n
+import branch_s
 import snc_merge
+
+import gradio as gr
 
 CUSTOM_CSS = """
 .gradio-container { max-width: 1120px !important; }
